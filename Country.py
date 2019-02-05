@@ -7,7 +7,8 @@ class Country:
   def create_table(conn):
     cur = conn.cursor()
 
-    cur.execute("""CREATE TABLE IF NOT EXISTS country (id CHARACTER(2) PRIMARY KEY,name TEXT NOT NULL)""")
+    cur.execute("""CREATE TABLE IF NOT EXISTS country (id CHARACTER(2) PRIMARY KEY,
+    name TEXT NOT NULL""")
 
   def load(self, conn):
     cur = conn.cursor()

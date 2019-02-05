@@ -13,13 +13,13 @@ class Hotel:
 
   def get_hotels(conn):
     hotels = []
-
+    dico={}
     cur = conn.cursor()
+    cur.execute("""SELECT country.name,hotel.address,hotel.postcode,hotel.town,hotel.stars FROM hotel INNER JOIN country ON hotel.country = country.id WHERE  open = 1""")
 
-    # votre code ici
-
-    cur.close()
-
+    for elem in cur.fetchall():
+        hotels.append({'country':elem[0],'address':elem[1],'postcode':elem[2],'town':elem[3],'stars':elem[4]})
+        cur.close()
     return hotels
 
   def create_table(conn):
@@ -32,7 +32,8 @@ class Hotel:
       postcode TEXT NOT NULL,
       town TEXT NOT NULL,
       stars INTEGER NOT NULL,
-      open SMALLINT NOT NULL
+      open SMALLINT NOT NULL,
+      foreign key (country) references country(id)
       )""")
 
   def load(self, conn):
@@ -55,4 +56,3 @@ class Hotel:
     cur = conn.cursor()
 
     cur.execute("DROP TABLE IF EXISTS hotel")
-

@@ -1,7 +1,7 @@
 [DEFAULT]
-MyName = <votre nom>
+MyName = nicolas
 
 [elephantsql.com]
-MyDBURL = <votre URL de base>
+MyDBURL = 	postgres://fwsqpwiv:TFM5hwwmf7-dfFbCYE4UNIjBh0jFCl5i@manny.db.elephantsql.com:5432/fwsqpwiv
 DataDBURL = postgres://fznuqzso:ayBfiv2zdC6_wJJ8hqqMWnsKpetsLsXc@manny.db.elephantsql.com:5432/fznuqzso
 
